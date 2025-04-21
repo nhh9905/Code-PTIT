@@ -1,0 +1,1 @@
+g++ -o ctdl dsa07025.cpp && ./ctdl
