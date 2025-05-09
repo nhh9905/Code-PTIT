@@ -24,7 +24,7 @@ void BFS(int u) {
 }
 
 int main() {
-	// freopen("a.inp", "r", stdin);
+	freopen("a.inp", "r", stdin);
 	int t;
 	cin >> t;
 	while (t--) {

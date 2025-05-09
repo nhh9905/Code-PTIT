@@ -3,53 +3,96 @@
 using namespace std;
 
 int n, a[15][15], x[15], num = 0;
+bool vis[15][15];
+vector<char> v;
 
-// 0: D, 1: R, 2: L, 3: U
 void ktra() {
-	int i = 1, j = 1, cnt = 1;
-	bool check = 1;
-	
-	if (!a[i][j])
-		check = 0;
-	while (a[i][j]) {
-		if (!x[cnt])
-			++i;
-		else
-			++j;
-		if (!a[i][j]) {
-			check = 0;
-			break;
-		}
-		if (i == n && j == n)
-			break;
-		++cnt;
-	}
-	if (check) {
-		++num;
-		for (int i = 1; i <= (n - 1)*2; i++) {
-			if (!x[i])
-				cout << 'D';
-			else
-				cout << 'R';
-		}
+	if (!v.empty()) {
+		for (char x:v)
+			cout << x;
 		cout << " ";
+		++num;
+		v.clear();
 	}
 }
 
-void Try(int i) {
+// 0: D, 1: R, 2: L, 3: U
+void Try(int i, int l, int r) {
 	for (int j = 0; j <= 3; j++) {
 		x[i] = j;
-		if (i == (n - 1)*2)
-			ktra();
-		else
-			Try(i + 1);
+
+		if (!x[i]) {
+			if (a[l + 1][r] && !vis[l + 1][r]) {
+				++l;
+				vis[l][r] = 1;
+				v.push_back('D');
+			}
+			else
+				continue;
+			if (l == n && r == n)
+				ktra();
+			else {
+				Try(i + 1, l, r);
+				continue;
+			}
+		}
+		
+		if (x[i] == 1) {
+			if (a[l][r + 1] && !vis[l][r + 1]) {
+				++r;
+				vis[l][r] = 1;
+				v.push_back('R');
+			}
+			else
+				continue;
+			if (l == n && r == n)
+				ktra();
+			else {
+				Try(i + 1, l, r);
+				continue;
+			}
+		}
+
+		if (x[i] == 2) {
+			if (a[l][r - 1] && !vis[l][r - 1]) {
+				--r;
+				vis[l][r] = 1;
+				v.push_back('L');
+			}
+			else
+				continue;
+			if (l == n && r == n)
+				ktra();
+			else {
+				Try(i + 1, l, r);
+				continue;
+			}
+		}
+
+		if (x[i] == 3) {
+			if (a[l - 1][r] && !vis[l - 1][r]) {
+				--l;
+				vis[l][r] = 1;
+				v.push_back('U');
+			}
+			else
+				continue;
+			if (l == n && r == n)
+				ktra();
+			else {
+				Try(i + 1, l, r);
+				continue;
+			}
+		}
+		vis[l][r] = 0;
 	}
+	vis[l][r] = 0;
 }
 
 int main() {
 	ios_base::sync_with_stdio(0);
 	cin.tie(0); cout.tie(0);
-	// freopen("a.inp", "r", stdin);
+	freopen("a.inp", "r", stdin);
 
 	int t;
 	cin >> t;
@@ -61,13 +104,14 @@ int main() {
 				cin >> a[i][j];
 		}
 
-		Try(1);
+		Try(1, 1, 1);
 
 		if (!num)
 			cout << -1;
 		cout << endl;
 
 		num = 0;
+		memset(vis, 0, sizeof(vis));
 	}	
 
 	return 0;
