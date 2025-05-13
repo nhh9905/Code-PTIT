@@ -118,9 +118,9 @@ void bai2() {
 int main() {
 	ios_base::sync_with_stdio(0);
 	cin.tie(0); cout.tie(0);
-	// freopen("a.inp", "r", stdin);
-	freopen("CT.INP", "r", stdin);
-	freopen("CT.OUT", "w", stdout);
+	freopen("a.inp", "r", stdin);
+	// freopen("CT.INP", "r", stdin);
+	// freopen("CT.OUT", "w", stdout);
 
 	int t; cin >> t;
 	
