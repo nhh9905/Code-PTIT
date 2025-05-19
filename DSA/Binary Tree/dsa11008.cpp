@@ -5,6 +5,8 @@
 #define se second
 using namespace std;
 
+int n, cntLeft = 0, cntRight = 0;
+
 typedef struct node {
 	int data;
 	node *left, *right;
@@ -15,14 +17,17 @@ typedef struct node {
 	}
 } node;
 
-int n;
-
 void add(node* &root, int u, int v, char c) {
+	if (root == NULL) {
+		return;
+	}
+
 	if (root->data == u) {
 		if (c == 'L')
 			root->left = new node(v);
 		else
 			root->right = new node(v);
+		return;
 	}
 
 	if (root->left)
@@ -31,23 +36,10 @@ void add(node* &root, int u, int v, char c) {
 		add(root->right, u, v, c);
 }
 
-void levelOrder(node *root) {
+int Size(node* root) {
 	if (root == NULL)
-		return;
-
-	queue<node*> q;
-	q.push(root);
-	
-	while (!q.empty()) {
-		node* v = q.front(); q.pop();
-		cout << v->data << " ";
-
-		if (v->left)
-			q.push(v->left);
-		if (v->right)
-			q.push(v->right);
-	}
-	cout << endl;
+		return 0;
+	return Size(root->left) + 1 + Size(root->right);
 }
 
 int main() {
@@ -60,7 +52,6 @@ int main() {
 	while (t--) {
 		node *head = NULL;
 		cin >> n;
-
 		for (int i = 1; i <= n; i++) {
 			int u, v;
 			char c;
@@ -72,7 +63,12 @@ int main() {
 			add(head, u, v, c);
 		}
 
-		levelOrder(head);
+		if (Size(head->left) == Size(head->right))
+			cout << "1\n";
+		else
+			cout << "0\n";
+
+		// cout << Size(head->left) << " " << Size(head->right) << endl;
 	}
 
 	return 0;

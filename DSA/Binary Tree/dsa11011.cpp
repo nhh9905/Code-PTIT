@@ -15,14 +15,13 @@ typedef struct node {
 	}
 } node;
 
-int n;
-
 void add(node* &root, int u, int v, char c) {
 	if (root->data == u) {
 		if (c == 'L')
 			root->left = new node(v);
 		else
 			root->right = new node(v);
+		return;
 	}
 
 	if (root->left)
@@ -31,24 +30,31 @@ void add(node* &root, int u, int v, char c) {
 		add(root->right, u, v, c);
 }
 
-void levelOrder(node *root) {
-	if (root == NULL)
+bool check = 1;
+
+void duyet(node *root) {
+	if (root == NULL || !check)
 		return;
 
-	queue<node*> q;
-	q.push(root);
-	
-	while (!q.empty()) {
-		node* v = q.front(); q.pop();
-		cout << v->data << " ";
-
-		if (v->left)
-			q.push(v->left);
-		if (v->right)
-			q.push(v->right);
+	if (root->left != NULL) {
+		if (root->right == NULL) {
+			check = 0;
+			return;
+		}
 	}
-	cout << endl;
+
+	if (root->right != NULL) {
+		if (root->left == NULL) {
+			check = 0;
+			return;
+		}
+	}
+
+	duyet(root->left);
+	duyet(root->right);
 }
+
+int n;
 
 int main() {
 	ios_base::sync_with_stdio(0);
@@ -72,7 +78,10 @@ int main() {
 			add(head, u, v, c);
 		}
 
-		levelOrder(head);
+		duyet(head);
+
+		cout << check << endl;
+		check = 1;
 	}
 
 	return 0;

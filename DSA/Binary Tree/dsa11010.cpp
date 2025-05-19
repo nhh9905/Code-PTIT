@@ -15,14 +15,15 @@ typedef struct node {
 	}
 } node;
 
-int n;
+int n, cnt[10005], depth = 0;
 
-void add(node* &root, int u, int v, char c) {
+void add(node* &root, int u, int v, int c) {
 	if (root->data == u) {
 		if (c == 'L')
 			root->left = new node(v);
 		else
 			root->right = new node(v);
+		return;
 	}
 
 	if (root->left)
@@ -31,23 +32,15 @@ void add(node* &root, int u, int v, char c) {
 		add(root->right, u, v, c);
 }
 
-void levelOrder(node *root) {
+void duyet(node *root, int level) {
 	if (root == NULL)
 		return;
 
-	queue<node*> q;
-	q.push(root);
-	
-	while (!q.empty()) {
-		node* v = q.front(); q.pop();
-		cout << v->data << " ";
+	++cnt[level];
+	depth = max(depth, level);
 
-		if (v->left)
-			q.push(v->left);
-		if (v->right)
-			q.push(v->right);
-	}
-	cout << endl;
+	duyet(root->left, level + 1);
+	duyet(root->right, level + 1);
 }
 
 int main() {
@@ -60,7 +53,6 @@ int main() {
 	while (t--) {
 		node *head = NULL;
 		cin >> n;
-
 		for (int i = 1; i <= n; i++) {
 			int u, v;
 			char c;
@@ -72,7 +64,21 @@ int main() {
 			add(head, u, v, c);
 		}
 
-		levelOrder(head);
+		bool check = 1;
+		depth = 0;
+		duyet(head, 0);
+
+		for (int i = 0; i <= depth; i++) {
+			if (cnt[i] != pow(2, i)) {
+				check = 0;
+				break;
+			}
+		}
+
+		cout << (check ? "Yes" : "No") << endl;
+
+		check = 1;
+		memset(cnt, 0, sizeof cnt);
 	}
 
 	return 0;
