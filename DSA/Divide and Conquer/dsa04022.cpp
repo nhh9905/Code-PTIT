@@ -5,19 +5,15 @@
 #define se second
 using namespace std;
 
+ll a[30];
+
 int main() {
 	ios_base::sync_with_stdio(0);
 	cin.tie(0); cout.tie(0);
 	// freopen("a.inp", "r", stdin);
 
-	string s[26];
-	char tmp = 'B';
-	int x = 1;
-	s[1] = "A";
-	for (int i = 2; i <= 25; i++) {
-		s[i] = s[i - 1] + tmp + s[i - 1];
-		++tmp;
-	}
+	for (int i = 0; i <= 25; i++)
+		a[i + 1] = pow(2, i);
 
 	int t; cin >> t;
 	
@@ -26,7 +22,14 @@ int main() {
 		ll k;
 		cin >> n >> k;
 
-		cout << s[n][k - 1] << endl;
+		for (int i = n; i >= 1; i--) {
+			if (k == a[i]) {
+				cout << char(i + 'A' - 1) << endl;
+				break;
+			}
+			else if (k > a[i])
+				k -= a[i];
+		}
 	}
 
 	return 0;

@@ -5,26 +5,25 @@
 #define se second
 using namespace std;
 
-int n, x, k, a[105], s = 0, cnt = 0;
-bool d[105];
+int n, x, k, a[105], s = 0;
+bool check = 0;
 
-void Try(int i, int sum) {
-	for (int j = i; j <= n; j++) {
-		if (!d[j]) {
-			sum += a[j];
-			d[j] = 1;
+void Try(int sum, int cnt) {
+	if (check)
+		return;
+	
+	if (cnt == k) {
+		check = 1;
+		return;
+	}
 
-			if (sum == x) {
-				++cnt;
-				sum -= a[j];
-			}
-			else {
-				if (sum < x)
-					Try(i + 1, sum);
-				sum -= a[j];
-				d[j] = 0;
-			}
-		}
+	for (int i = 1; i <= n; i++) {
+		if (sum == x)
+			Try(0, cnt + 1);
+		else if (sum < x)
+			Try(sum + a[i], cnt);
+		else
+			return;
 	}
 }
 
@@ -37,9 +36,9 @@ int main() {
 	
 	while (t--) {
 		cin >> n >> k;
+		check = 0;
+		s = 0;
 
-		memset(d, 0, sizeof d);
-		s = 0, cnt = 0;
 		for (int i = 1; i <= n; i++) {
 			cin >> a[i];
 			s += a[i];
@@ -49,12 +48,9 @@ int main() {
 			cout << 0;
 		else {
 			x = s/k;
-			Try(1, 0);
+			Try(0, 0);
 
-			if (cnt == k)
-				cout << 1;
-			else
-				cout << 0;
+			cout << check;
 		}
 
 		cout << endl;

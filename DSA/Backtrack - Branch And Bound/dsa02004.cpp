@@ -4,9 +4,8 @@ using namespace std;
 
 int n, a[15][15], x[15], num = 0;
 bool vis[15][15];
-vector<char> v;
 
-void ktra() {
+void ktra(vector<char> v) {
 	if (!v.empty()) {
 		for (char x:v)
 			cout << x;
@@ -17,7 +16,7 @@ void ktra() {
 }
 
 // 0: D, 1: R, 2: L, 3: U
-void Try(int i, int l, int r) {
+void Try(int i, int l, int r, vector<char> v) {
 	for (int j = 0; j <= 3; j++) {
 		x[i] = j;
 
@@ -30,9 +29,9 @@ void Try(int i, int l, int r) {
 			else
 				continue;
 			if (l == n && r == n)
-				ktra();
+				ktra(v);
 			else {
-				Try(i + 1, l, r);
+				Try(i + 1, l, r, v);
 				continue;
 			}
 		}
@@ -46,9 +45,9 @@ void Try(int i, int l, int r) {
 			else
 				continue;
 			if (l == n && r == n)
-				ktra();
+				ktra(v);
 			else {
-				Try(i + 1, l, r);
+				Try(i + 1, l, r, v);
 				continue;
 			}
 		}
@@ -62,9 +61,9 @@ void Try(int i, int l, int r) {
 			else
 				continue;
 			if (l == n && r == n)
-				ktra();
+				ktra(v);
 			else {
-				Try(i + 1, l, r);
+				Try(i + 1, l, r, v);
 				continue;
 			}
 		}
@@ -78,9 +77,9 @@ void Try(int i, int l, int r) {
 			else
 				continue;
 			if (l == n && r == n)
-				ktra();
+				ktra(v);
 			else {
-				Try(i + 1, l, r);
+				Try(i + 1, l, r, v);
 				continue;
 			}
 		}
@@ -104,7 +103,8 @@ int main() {
 				cin >> a[i][j];
 		}
 
-		Try(1, 1, 1);
+		vector<char> vec;
+		Try(1, 1, 1, vec);
 
 		if (!num)
 			cout << -1;
