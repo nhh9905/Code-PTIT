@@ -153,11 +153,11 @@ Ví dụ: ![alt text](./img/image-12.png)
 
 - Khái niệm và ví dụ: ![alt text](./img/image-34.png) ![alt text](./img/image-35.png)
 - Điều kiện cần và đủ để đồ thị là Euler:
-    - Đồ thị vô hướng: mọi đỉnh của đồ thị đều có bậc chẵn
-    - Đồ thị có hướng: tất cả các đỉnh đều có bán bậc ra bằng bán bậc vào (đồ thị liên thông mạnh)
+    - Đồ thị vô hướng liên thông: mọi đỉnh của đồ thị đều có bậc chẵn
+    - Đồ thị có hướng liên thông yếu: tất cả các đỉnh đều có bán bậc ra bằng bán bậc vào (đồ thị liên thông mạnh)
 - Điều kiện cần và đủ để đồ thị là nửa Euler:
-    - Đồ thị vô hướng: đồ thị có 0 hoặc 2 đỉnh bậc lẻ
-    - Đồ thị có hướng:
+    - Đồ thị vô hướng liên thông: đồ thị có 0 hoặc 2 đỉnh bậc lẻ
+    - Đồ thị có hướng liên thông yếu:
         - Tồn tại đúng hai đỉnh 𝑢, 𝑣 ∈ 𝑉 sao cho 𝑑𝑒𝑔+(𝑢) − 𝑑𝑒𝑔−(𝑢) = 𝑑𝑒𝑔−(𝑣) − deg+(𝑣) = 1
         - Các đỉnh 𝑠 ≠ 𝑢, 𝑠 ≠ 𝑣 còn lại có 𝑑𝑒𝑔+(𝑠) = 𝑑𝑒𝑔−(𝑠)
         - Đường đi Euler sẽ xuất phát tại đỉnh 𝑢 và kết thúc tại đỉnh 𝑣
@@ -189,14 +189,25 @@ Ví dụ: ![alt text](./img/image-12.png)
 </p>
 </details>
 
-## Cây khung của đồ thị
+<details>
+<summary><h2>Cây khung của đồ thị</h2></summary>
+<p>
+
+- Định nghĩa: ![alt text](./img/image-37.png)
+- Xây dựng cây khung của đồ thị: ![alt text](./img/image-38.png)
+</p>
+</details>
 
 <details>
 <summary><h2>Bài toán cây khung nhỏ nhất</h2></summary>
 <p>
 
-- Thuật toán Kruskal
-- Thuật toán Prim
+- Phát biểu bài toán: ![alt text](./img/image-39.png)
+- Ví dụ:
+    - Bài toán nối mạng máy tính: Một mạng máy tính gồm 𝑛 máy tính được đánh số từ 1, 2,..., 𝑛. Biết chi phí nối máy 𝑖 với máy 𝑗 là 𝑐[𝑖, 𝑗], 𝑖, 𝑗 = 1, 2, . . . , 𝑛. Hãy tìm cách nối mạng sao cho chi phí là nhỏ nhất.
+    - Bài toán xây dựng hệ thống cáp: Giả sử ta muốn xây dựng một hệ thống cáp điện thoại nối 𝑛 điểm của một mạng viễn thông sao cho điểm bất kỳ nào trong mạng đều có đường truyền tin tới các điểm khác. Biết chi phí xây dựng hệ thống cáp từ điểm 𝑖 đến điểm 𝑗 là 𝑐[𝑖, 𝑗]. Hãy tìm cách xây dựng hệ thống mạng cáp sao cho chi phí là nhỏ nhất.
+- Thuật toán Kruskal: ![alt text](./img/image-40.png)
+- Thuật toán Prim: ![alt text](./img/image-41.png)
 </p>
 </details>
 
