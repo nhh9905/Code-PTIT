@@ -1,5 +1,9 @@
 # Các khái niệm cơ bản
-## Định nghĩa đồ thị
+
+<details>
+<summary><h2>Định nghĩa đồ thị</h2></summary>
+<p>
+
 - Đơn đồ thị vô hướng: ![alt text](./img/image.png)
 - Đa đồ thị vô hướng: ![alt text](./img/image-1.png)
 - Giả đồ thị vô hướng: ![alt text](./img/image-2.png)
@@ -28,7 +32,13 @@ Ví dụ: ![alt text](./img/image-12.png)
 - Đồ thị vòng: ![alt text](./img/image-17.png)
 - Đồ thị bánh xe: ![alt text](./img/image-18.png)
 - Đồ thị hai phía: ![alt text](./img/image-19.png)
-# Biểu diễn đồ thị trên máy tính
+</p>
+</details>
+
+<details>
+<summary><h2>Biểu diễn đồ thị trên máy tính</h2></summary>
+<p>
+
 ## Biểu diễn đồ thị bằng ma trận kề
 - Ma trận kề của đồ thị vô hướng: ![alt text](./img/image-23.png)
 - Tính chất của ma trận kề đối với đồ thị vô hướng: ![alt text](./img/image-20.png)
@@ -43,7 +53,13 @@ Ví dụ: ![alt text](./img/image-12.png)
 - Ưu và nhược điểm: ![alt text](./img/image-28.png)
 ## Biểu diễn đồ thị bằng danh sách kề
 - Ưu và nhược điểm: ![alt text](./img/image-29.png)
-# Tìm kiếm trên đồ thị
+</p>
+</details>
+
+<details>
+<summary><h2>Tìm kiếm trên đồ thị</h2></summary>
+<p>
+
 ## DFS + BFS
 - Độ phức tạp thuật toán:
     - Biểu diễn bằng ma trận kề: `O(n^2)`
@@ -63,7 +79,13 @@ Ví dụ: ![alt text](./img/image-12.png)
 - Bài toán định chiều đồ thị
     - Định nghĩa: ![alt text](./img/image-30.png)
     - Định lý: ![alt text](./img/image-31.png)
-# Đồ thị Euler và Hamilton
+</p>
+</details>
+
+<details>
+<summary><h2>Đồ thị Euler và Hamilton</h2></summary>
+<p>
+
 ## Đồ thị Euler (đi qua các cạnh của đồ thị 1 lần)
 - Khái niệm và ví dụ: ![alt text](./img/image-34.png) ![alt text](./img/image-35.png)
 - Điều kiện cần và đủ để đồ thị là Euler:
@@ -78,7 +100,13 @@ Ví dụ: ![alt text](./img/image-12.png)
 ## Đồ thị Hamilton (đi qua các đỉnh của đồ thị 1 lần)
 - Khái niệm và ví dụ: ![alt text](./img/image-36.png)
 - Chưa có thuật toán hiệu quả để kiểm tra xem 1 đồ thị có phải Hamilton không.
-# Spanning Trees
+</p>
+</details>
+
+<details>
+<summary><h2>Spanning Trees</h2></summary>
+<p>
+
 ## Cây và các tính chất của cây
 - Định nghĩa: ![alt text](./img/image-32.png)
 - Các tính chất của cây: ![alt text](./img/image-33.png)
@@ -86,7 +114,13 @@ Ví dụ: ![alt text](./img/image-12.png)
 ## Bài toán cây khung nhỏ nhất
 - Thuật toán Kruskal
 - Thuật toán Prim
-# Shortest Path
+</p>
+</details>
+
+<details>
+<summary><h2>Shortest Path</h2></summary>
+<p>
+
 ## Bài toán tìm đường đi ngắn nhất
 - Trường hợp 1: s cố định, t thay đổi
     - Đồ thị ko có trọng số âm: Dijkstra
@@ -107,6 +141,14 @@ Ví dụ: ![alt text](./img/image-12.png)
 - Mục đích:
     - Tìm đường đi ngắn nhất giữa tất cả các cặp đỉnh của đồ thị.
     - Áp dụng cho đồ thị có hướng và không có chu trình âm (có thể có cạnh âm).
-# Bài toán luồng cực đại trong mạng
+</p>
+</details>
+
+<details>
+<summary><h2>Bài toán luồng cực đại trong mạng</h2></summary>
+<p>
+
 ## Phát biểu bài toán
 ## Thuật toán Ford-Fulkerson
+</p>
+</details>
