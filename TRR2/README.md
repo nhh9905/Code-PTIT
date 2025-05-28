@@ -132,13 +132,13 @@ Ví dụ: ![alt text](./img/image-12.png)
 - Duyệt tất cả các thành phần liên thông của đồ thị
 - Tìm đường đi từ đỉnh s đến đỉnh t trên đồ thị
 
-Code: ![alt text](./code/duong%20di%20tren%20do%20thi)
+Code: [Đường đi trên đồ thị](./code/duong%20di%20tren%20do%20thi)
 - Kiểm tra tính liên thông mạnh của đồ thị bằng thuật toán Kosaraju
 
-Code: ![alt text](./code/dem%20so%20thanh%20phan%20lien%20thong%20manh)
+Code: [Đếm số thành phần liên thông mạnh](./code/dem%20so%20thanh%20phan%20lien%20thong%20manh)
 - Duyệt các đỉnh trụ, cạnh cầu của đồ thị
 
-Code: ![alt text](./code/khop%20va%20cau)
+Code: [Duyệt đỉnh trụ, cạnh cầu](./code/khop%20va%20cau)
 - Bài toán định chiều đồ thị
     - Định nghĩa: ![alt text](./img/image-30.png)
     - Định lý: ![alt text](./img/image-31.png)
@@ -167,7 +167,7 @@ Code: ![alt text](./code/khop%20va%20cau)
         - Các đỉnh 𝑠 ≠ 𝑢, 𝑠 ≠ 𝑣 còn lại có 𝑑𝑒𝑔+(𝑠) = 𝑑𝑒𝑔−(𝑠)
         - Đường đi Euler sẽ xuất phát tại đỉnh 𝑢 và kết thúc tại đỉnh 𝑣
 
-Code: ![alt text](./code/euler)
+Code: [Euler](./code/euler)
 </p>
 </details>
 
@@ -178,7 +178,7 @@ Code: ![alt text](./code/euler)
 - Khái niệm và ví dụ: ![alt text](./img/image-36.png)
 - Chưa có thuật toán hiệu quả để kiểm tra xem 1 đồ thị có phải Hamilton không.
 
-Code: ![alt text](./code/hamilton)
+Code: [Hamilton](./code/hamilton)
 </p>
 </details>
 
@@ -223,7 +223,7 @@ Bước 2: Xét các cạnh (x, y): nếu x, y khác cha thì thêm vào cây kh
 Bước 3: In ra kết quả
 ```
 
-Code: ![alt text](./code/cay%20khung%20nho%20nhat/kruskal)
+Code: [Thuật toán Kruskal](./code/cay%20khung%20nho%20nhat/kruskal)
 - Thuật toán Prim: ![alt text](./img/image-41.png)
 ```
 Tóm tắt:
@@ -233,7 +233,7 @@ Bước 2: Lặp: Chừng nào V khác rỗng thì tìm cạnh ngắn nhất e =
 Bước 3: In ra kết quả
 ```
 
-Code: ![alt text](./code/cay%20khung%20nho%20nhat/prim)
+Code: [Thuật toán Prim](./code/cay%20khung%20nho%20nhat/prim)
 </p>
 </details>
 
@@ -266,7 +266,7 @@ Code: ![alt text](./code/cay%20khung%20nho%20nhat/prim)
     - Tìm đường đi ngắn nhất từ 1 đỉnh s tới các đỉnh còn lại.
     - Áp dụng cho đồ thị có hướng với trọng số ko âm.
 
-Code: ![alt text](./code/duong%20di%20ngan%20nhat/dijkstra)
+Code: [Thuật toán Dijkstra](./code/duong%20di%20ngan%20nhat/dijkstra)
 </p>
 </details>
 
