@@ -6,8 +6,31 @@
 using namespace std;
 
 int n, u, deg_in[1005], deg_out[1005];
-set<int> adj[1005];
+vector<int> adj[1005];
+set<int> adj1[1005];
 bool vis[1005];
+
+void dfs(int u) {
+	vis[u] = 1;
+
+	for (int v:adj[u]) {
+		if (!vis[v])
+			dfs(v);
+	}
+}
+
+bool checkComponent() {
+	int tplt = 0;
+
+	for (int i = 1; i <= n; i++) {
+		if (!vis[i]) {
+			++tplt;
+			dfs(i);
+		}
+	}
+
+	return tplt == 1;
+}
 
 void bai1() {
 	int cnt = 0, cnt1 = 0;
@@ -58,10 +81,10 @@ void chutrinh(int u) {
 	while (!st.empty()) {
 		int v = st.top();
 
-		if (!adj[v].empty()) {
-			int k = *adj[v].begin();
+		if (!adj1[v].empty()) {
+			int k = *adj1[v].begin();
 			st.push(k);
-			adj[v].erase(k);
+			adj1[v].erase(k);
 		}
 
 		else {
@@ -86,7 +109,7 @@ void bai2() {
 		for (int j = 1; j <= k; j++) {
 			int x;
 			cin >> x;
-			adj[i].insert(x);
+			adj1[i].insert(x);
 		}
 	}
 
