@@ -131,9 +131,14 @@ Ví dụ: ![alt text](./img/image-12.png)
 - Duyệt tất cả các đỉnh của đồ thị
 - Duyệt tất cả các thành phần liên thông của đồ thị
 - Tìm đường đi từ đỉnh s đến đỉnh t trên đồ thị
-- Kiểm tra tính liên thông mạnh của đồ thị
-- Duyệt các đỉnh trụ của đồ thị
-- Duyệt các cạnh cầu của đồ thị
+
+Code: ![alt text](./code/duong%20di%20tren%20do%20thi)
+- Kiểm tra tính liên thông mạnh của đồ thị bằng thuật toán Kosaraju
+
+Code: ![alt text](./code/dem%20so%20thanh%20phan%20lien%20thong%20manh)
+- Duyệt các đỉnh trụ, cạnh cầu của đồ thị
+
+Code: ![alt text](./code/khop%20va%20cau)
 - Bài toán định chiều đồ thị
     - Định nghĩa: ![alt text](./img/image-30.png)
     - Định lý: ![alt text](./img/image-31.png)
@@ -161,6 +166,8 @@ Ví dụ: ![alt text](./img/image-12.png)
         - Tồn tại đúng hai đỉnh 𝑢, 𝑣 ∈ 𝑉 sao cho 𝑑𝑒𝑔+(𝑢) − 𝑑𝑒𝑔−(𝑢) = 𝑑𝑒𝑔−(𝑣) − deg+(𝑣) = 1
         - Các đỉnh 𝑠 ≠ 𝑢, 𝑠 ≠ 𝑣 còn lại có 𝑑𝑒𝑔+(𝑠) = 𝑑𝑒𝑔−(𝑠)
         - Đường đi Euler sẽ xuất phát tại đỉnh 𝑢 và kết thúc tại đỉnh 𝑣
+
+Code: ![alt text](./code/euler)
 </p>
 </details>
 
@@ -170,6 +177,8 @@ Ví dụ: ![alt text](./img/image-12.png)
 
 - Khái niệm và ví dụ: ![alt text](./img/image-36.png)
 - Chưa có thuật toán hiệu quả để kiểm tra xem 1 đồ thị có phải Hamilton không.
+
+Code: ![alt text](./code/hamilton)
 </p>
 </details>
 
@@ -204,10 +213,27 @@ Ví dụ: ![alt text](./img/image-12.png)
 
 - Phát biểu bài toán: ![alt text](./img/image-39.png)
 - Ví dụ:
-    - Bài toán nối mạng máy tính: Một mạng máy tính gồm 𝑛 máy tính được đánh số từ 1, 2,..., 𝑛. Biết chi phí nối máy 𝑖 với máy 𝑗 là 𝑐[𝑖, 𝑗], 𝑖, 𝑗 = 1, 2, . . . , 𝑛. Hãy tìm cách nối mạng sao cho chi phí là nhỏ nhất.
+    - Bài toán nối mạng máy tính: Một mạng máy tính gồm 𝑛 máy tính được đánh số từ 1, 2, . . . , 𝑛. Biết chi phí nối máy 𝑖 với máy 𝑗 là 𝑐[𝑖, 𝑗], 𝑖, 𝑗 = 1, 2, . . . , 𝑛. Hãy tìm cách nối mạng sao cho chi phí là nhỏ nhất.
     - Bài toán xây dựng hệ thống cáp: Giả sử ta muốn xây dựng một hệ thống cáp điện thoại nối 𝑛 điểm của một mạng viễn thông sao cho điểm bất kỳ nào trong mạng đều có đường truyền tin tới các điểm khác. Biết chi phí xây dựng hệ thống cáp từ điểm 𝑖 đến điểm 𝑗 là 𝑐[𝑖, 𝑗]. Hãy tìm cách xây dựng hệ thống mạng cáp sao cho chi phí là nhỏ nhất.
 - Thuật toán Kruskal: ![alt text](./img/image-40.png)
+```
+Tóm tắt: Áp dụng DSU để code
+Bước 1: Khởi tạo và sắp xếp các cạnh theo trọng số tăng dần
+Bước 2: Xét các cạnh (x, y): nếu x, y khác cha thì thêm vào cây khung, không thì bỏ
+Bước 3: In ra kết quả
+```
+
+Code: ![alt text](./code/cay%20khung%20nho%20nhat/kruskal)
 - Thuật toán Prim: ![alt text](./img/image-41.png)
+```
+Tóm tắt:
+Gọi V = {1...n}, V(MST) = NULL
+Bước 1: Khởi tạo: Thêm đỉnh u vào V(MST) và loại u khỏi V
+Bước 2: Lặp: Chừng nào V khác rỗng thì tìm cạnh ngắn nhất e = (x, y) với x thuộc V, y thuộc V(MST) và thêm cạnh e vào cây khung, đồng thời loại đỉnh x khỏi V và thêm x vào V(MST)
+Bước 3: In ra kết quả
+```
+
+Code: ![alt text](./code/cay%20khung%20nho%20nhat/prim)
 </p>
 </details>
 
@@ -239,6 +265,8 @@ Ví dụ: ![alt text](./img/image-12.png)
 - Mục đích:
     - Tìm đường đi ngắn nhất từ 1 đỉnh s tới các đỉnh còn lại.
     - Áp dụng cho đồ thị có hướng với trọng số ko âm.
+
+Code: ![alt text](./code/duong%20di%20ngan%20nhat/dijkstra)
 </p>
 </details>
 
