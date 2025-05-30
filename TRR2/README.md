@@ -330,15 +330,17 @@ Giải thích:
         Đỉnh 4: 1 = 1
     3. val(f) = 1 + 3 = 3 + 1 = 4
 
-- Lát cắt: Lát cắt chia đồ thị thành 2 tập hợp X, X* sao cho s thuộc X, t thuộc X*. Khả năng thông qua của lát cắt (X, X*):
+- Lát cắt: Lát cắt chia đồ thị thành 2 tập hợp X, X* sao cho s thuộc X, t thuộc X*.
 
-    $c(X, X^*) = \sum c(v, w)$, v thuộc X, w thuộc X*
+    - Khả năng thông qua của lát cắt (X, X*): $c(X, X^*) = \sum c(v, w)$
+    Trong đó v thuộc X, w thuộc X*
     
-    c(X, X*) min được gọi là lát cắt hẹp nhất
+    - c(X, X*) min được gọi là lát cắt hẹp nhất
 
 Giá trị của mọi luồng 𝑓 trong mạng luôn nhỏ hơn hoặc bằng khả năng thông qua của lát cắt (𝑋,𝑋∗) bất kỳ trong mạng
 
 Ví dụ:
+
 ![alt text](./img/image-43.png)
 
 Xét lắt cắt (X, X*) trong đó X = {s, 3, 4}, X* = {1, 2, t}
