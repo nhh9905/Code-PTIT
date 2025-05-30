@@ -297,7 +297,91 @@ Code: [Thuật toán Dijkstra](./code/duong%20di%20ngan%20nhat/dijkstra)
 <summary><h1>Bài toán luồng cực đại trong mạng</h1></summary>
 <p>
 
-## Phát biểu bài toán
-## Thuật toán Ford-Fulkerson
+<details>
+<summary><h2>Định nghĩa</h2></summary>
+<p>
+
+- Mạng: Mạng là đồ thị có hướng, có trọng số e(u, v) thoả mãn:
+    - Có duy nhất 1 đỉnh s không có cung đi vào gọi là điểm phát
+    - Có duy nhất 1 đỉnh t không có cung đi ra gọi là điểm thu
+    - Trọng số e(u, v) là số thực được gọi là khả năng thông qua của cung (nếu không có cung thì khả năng thông qua = 0), kí hiệu `c(u, v)`
+
+- Luồng: Luồng f trong mạng G là ánh xạ `f: E → R+`. Gán cho mỗi cung e 1 số thực không âm `f(e) = f(u, v)`, gọi là luồng trên cung e, thoả mãn:
+    - Luồng trên cung e không vượt quá khả năng thông qua của nó: 0 ≤ f(e) ≤ c(u, v)
+    - Với mọi đỉnh khác s, t: Tổng luồng cung đi vào = Tổng luồng cung đi ra:
+    $\sum f(u,v) = \sum f(v, u)$
+    - Giá trị của luồng f: là tổng cung đi ra của s, hoặc tổng cung đi vào của t:
+    $val(f) = \sum f(s, u) = \sum f(u, s)$
+
+Ví dụ: ![alt text](./img/image-42.png)
+    
+    Trong đó: Đỏ: Khả năng thông qua (Trọng số). Xanh: Luồng
+
+Giải thích:
+
+    1. Thoả mãn mọi luồng cung đều nhỏ hơn khả năng thông qua của cung đó
+    2. Tổng luồng cung đi vào = Tổng luồng cung đi ra
+        Đỉnh 1: 1 + 1 = 2
+        Đỉnh 2: 2 + 1 = 3
+        Đỉnh 3: 3 = 1 + 1 + 1
+        Đỉnh 4: 1 = 1
+    3. val(f) = 1 + 3 = 3 + 1 = 4
+
+- Lát cắt: Lát cắt chia đồ thị thành 2 tập hợp X, X* sao cho s thuộc X, t thuộc X*. Khả năng thông qua của lát cắt (X, X*):
+    $c(X, X^*) = \sum c(v, w)$, v thuộc X, w thuộc X*
+    c(X, X*) min được gọi là lát cắt hẹp nhất
+
+Giá trị của mọi luồng 𝑓 trong mạng luôn nhỏ hơn hoặc bằng khả năng thông qua của lát cắt (𝑋,𝑋∗) bất kỳ trong mạng
+
+Ví dụ: ![alt text](./img/image-43.png)
+
+Xét lắt cắt (X, X*) trong đó X = {s, 3, 4}, X* = {1, 2, t}
+Khi đó c(X, X*) = c(s, 1) + c(3, 1) + c(3, 2) + c(4, t) = 11
+
+- Đồ thị tăng luồng: Cho mạng G, ta sẽ xây dựng đồ thị tăng luồng G’ theo tiêu chí sau:
+Xét cung e(u, v):
+    - Nếu `f(e) = 0` → Giữ nguyên cung
+    - Nếu `f(e) = c(u, v)` → Đảo hướng của cung
+    - Nếu `0 ≤ f(e) ≤ c(e)` → Cập nhật cung với trọng số `c(e) - f(e)`, thêm 1 cung ngược hướng với trọng số `f(e)`
+
+Ví dụ: ![alt text](./img/image-44.png)
+
+Các cung giữ nguyên từ đồ thị trước thì gọi là cung thuận, còn các cung mới (kể cả đảo hướng) là cung nghịch
+
+- Tăng luồng theo đường đi: 
+    - Xét `P = (s = v0, v1,… = t)` là đường đi từ s đến trên đồ thị tăng luồng G’
+    - Ta gọi $\omega$ là giá trị nhỏ nhất trong các cung trên đường đi P
+    - Về lại đồ thị ban đầu G, ta cập nhật như sau:
+        - f’(u, v) = f(u, v) + $\omega$ nếu là cung thuận
+        - f’(u, v) = f(u, v) - $\omega$ nếu là cung nghịch
+        - f’(u, v) = f(u, v) nếu cung không trên đường đi P
+
+Ví dụ: ![alt text](./img/image-45.png)
+
+- Đường tăng luồng: Đường tăng luồng 𝑓 là một đường đi bất kỳ từ 𝑠 đến 𝑡 trong đồ thị tăng luồng G’
+
+Định lý 1: Các mệnh đề sau là tương đương:
+
+    - 𝑓 là luồng cực đại trong mạng
+    - Không tìm được đường tăng luồng 𝑓
+    - 𝑣𝑎𝑙(𝑓) = 𝑐(𝑋,𝑋∗) với một lát cắt (𝑋,𝑋∗) nào đó
+</p>
+</details>
+
+<summary><h2>Thuật toán Ford - Fulkerson</h2></summary>
+<p>
+
+Ví dụ: ![alt text](./img/image-46.png)
+
+- Bắt đầu từ một luồng 𝑓 bất kỳ - có thể là luồng 0
+- Xây dựng đồ thị tăng luồng 𝐺’
+- Từ 𝐺’, tìm đường tăng luồng 𝑃:
+    - Nếu không có đường tăng luồng nào thì kết thúc
+    - Nếu có đường tăng luồng 𝑃 thì xây dựng luồng mới 𝑓’ và lặp lại quá trình trên cho đến khi không tìm thêm được đường tăng luồng mới
+
+Để tìm đường tăng luồng trong 𝐺𝑓 có thể sử dụng thuật toán tìm kiếm theo chiều rộng (hoặc theo chiều sâu) bắt đầu từ đỉnh 𝑠.
+</p>
+</details>
+
 </p>
 </details>
