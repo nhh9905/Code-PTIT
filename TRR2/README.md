@@ -334,6 +334,7 @@ Giải thích:
 - Lát cắt: Lát cắt chia đồ thị thành 2 tập hợp X, X* sao cho s thuộc X, t thuộc X*.
 
     - Khả năng thông qua của lát cắt (X, X*): $c(X, X^*) = \sum c(v, w)$
+    
     Trong đó v thuộc X, w thuộc X*
     
     - c(X, X*) min được gọi là lát cắt hẹp nhất
