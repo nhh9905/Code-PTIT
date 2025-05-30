@@ -316,6 +316,7 @@ Code: [Thuật toán Dijkstra](./code/duong%20di%20ngan%20nhat/dijkstra)
     $val(f) = \sum f(s, u) = \sum f(u, s)$
 
 Ví dụ:
+
 ![alt text](./img/image-42.png)
     
     Trong đó: Đỏ: Khả năng thông qua (Trọng số). Xanh: Luồng
