@@ -368,6 +368,7 @@ Ví dụ: ![alt text](./img/image-45.png)
 </p>
 </details>
 
+<details>
 <summary><h2>Thuật toán Ford - Fulkerson</h2></summary>
 <p>
 
