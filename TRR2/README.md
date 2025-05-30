@@ -304,7 +304,9 @@ Code: [Thuật toán Dijkstra](./code/duong%20di%20ngan%20nhat/dijkstra)
 - Mạng: Mạng là đồ thị có hướng, có trọng số e(u, v) thoả mãn:
     - Có duy nhất 1 đỉnh s không có cung đi vào gọi là điểm phát
     - Có duy nhất 1 đỉnh t không có cung đi ra gọi là điểm thu
-    - Trọng số e(u, v) là số thực được gọi là khả năng thông qua của cung (nếu không có cung thì khả năng thông qua = 0), kí hiệu `c(u, v)`
+    - Trọng số e(u, v) là số thực được gọi là khả năng thông qua của cung (nếu không có cung thì khả năng thông qua = 0)
+    
+    Kí hiệu: `c(u, v)`
 
 - Luồng: Luồng f trong mạng G là ánh xạ `f: E → R+`. Gán cho mỗi cung e 1 số thực không âm `f(e) = f(u, v)`, gọi là luồng trên cung e, thoả mãn:
     - Luồng trên cung e không vượt quá khả năng thông qua của nó: 0 ≤ f(e) ≤ c(u, v)
@@ -313,7 +315,8 @@ Code: [Thuật toán Dijkstra](./code/duong%20di%20ngan%20nhat/dijkstra)
     - Giá trị của luồng f: là tổng cung đi ra của s, hoặc tổng cung đi vào của t:
     $val(f) = \sum f(s, u) = \sum f(u, s)$
 
-Ví dụ: ![alt text](./img/image-42.png)
+Ví dụ:
+![alt text](./img/image-42.png)
     
     Trong đó: Đỏ: Khả năng thông qua (Trọng số). Xanh: Luồng
 
@@ -328,14 +331,18 @@ Giải thích:
     3. val(f) = 1 + 3 = 3 + 1 = 4
 
 - Lát cắt: Lát cắt chia đồ thị thành 2 tập hợp X, X* sao cho s thuộc X, t thuộc X*. Khả năng thông qua của lát cắt (X, X*):
+
     $c(X, X^*) = \sum c(v, w)$, v thuộc X, w thuộc X*
+    
     c(X, X*) min được gọi là lát cắt hẹp nhất
 
 Giá trị của mọi luồng 𝑓 trong mạng luôn nhỏ hơn hoặc bằng khả năng thông qua của lát cắt (𝑋,𝑋∗) bất kỳ trong mạng
 
-Ví dụ: ![alt text](./img/image-43.png)
+Ví dụ:
+![alt text](./img/image-43.png)
 
 Xét lắt cắt (X, X*) trong đó X = {s, 3, 4}, X* = {1, 2, t}
+
 Khi đó c(X, X*) = c(s, 1) + c(3, 1) + c(3, 2) + c(4, t) = 11
 
 - Đồ thị tăng luồng: Cho mạng G, ta sẽ xây dựng đồ thị tăng luồng G’ theo tiêu chí sau:
@@ -344,7 +351,8 @@ Xét cung e(u, v):
     - Nếu `f(e) = c(u, v)` → Đảo hướng của cung
     - Nếu `0 ≤ f(e) ≤ c(e)` → Cập nhật cung với trọng số `c(e) - f(e)`, thêm 1 cung ngược hướng với trọng số `f(e)`
 
-Ví dụ: ![alt text](./img/image-44.png)
+Ví dụ:
+![alt text](./img/image-44.png)
 
 Các cung giữ nguyên từ đồ thị trước thì gọi là cung thuận, còn các cung mới (kể cả đảo hướng) là cung nghịch
 
@@ -356,7 +364,8 @@ Các cung giữ nguyên từ đồ thị trước thì gọi là cung thuận, c
         - f’(u, v) = f(u, v) - $\omega$ nếu là cung nghịch
         - f’(u, v) = f(u, v) nếu cung không trên đường đi P
 
-Ví dụ: ![alt text](./img/image-45.png)
+Ví dụ:
+![alt text](./img/image-45.png)
 
 - Đường tăng luồng: Đường tăng luồng 𝑓 là một đường đi bất kỳ từ 𝑠 đến 𝑡 trong đồ thị tăng luồng G’
 
@@ -372,7 +381,8 @@ Ví dụ: ![alt text](./img/image-45.png)
 <summary><h2>Thuật toán Ford - Fulkerson</h2></summary>
 <p>
 
-Ví dụ: ![alt text](./img/image-46.png)
+Ví dụ:
+![alt text](./img/image-46.png)
 
 - Bắt đầu từ một luồng 𝑓 bất kỳ - có thể là luồng 0
 - Xây dựng đồ thị tăng luồng 𝐺’
