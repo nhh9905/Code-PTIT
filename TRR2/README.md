@@ -287,6 +287,8 @@ Code: [Thuật toán Dijkstra](./code/duong%20di%20ngan%20nhat/dijkstra)
 - Mục đích:
     - Tìm đường đi ngắn nhất giữa tất cả các cặp đỉnh của đồ thị.
     - Áp dụng cho đồ thị có hướng và không có chu trình âm (có thể có cạnh âm).
+
+Code: [Thuật toán Floyd](./code/duong%20di%20ngan%20nhat/floyd)
 </p>
 </details>
 
