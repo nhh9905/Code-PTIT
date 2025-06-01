@@ -352,6 +352,7 @@ Xét lắt cắt (X, X*) trong đó X = {s, 3, 4}, X* = {1, 2, t}
 Khi đó c(X, X*) = c(s, 1) + c(3, 1) + c(3, 2) + c(4, t) = 11
 
 - Đồ thị tăng luồng: Cho mạng G, ta sẽ xây dựng đồ thị tăng luồng G’ theo tiêu chí sau:
+
 Xét cung e(u, v):
     - Nếu `f(e) = 0` → Giữ nguyên cung
     - Nếu `f(e) = c(u, v)` → Đảo hướng của cung
@@ -363,7 +364,7 @@ Ví dụ:
 Các cung giữ nguyên từ đồ thị trước thì gọi là cung thuận, còn các cung mới (kể cả đảo hướng) là cung nghịch
 
 - Tăng luồng theo đường đi: 
-    - Xét `P = (s = v0, v1,… = t)` là đường đi từ s đến trên đồ thị tăng luồng G’
+    - Xét `P = (s = v0, v1,… = t)` là đường đi từ s đến t trên đồ thị tăng luồng G’
     - Ta gọi $\omega$ là giá trị nhỏ nhất trong các cung trên đường đi P
     - Về lại đồ thị ban đầu G, ta cập nhật như sau:
         - f’(u, v) = f(u, v) + $\omega$ nếu là cung thuận
