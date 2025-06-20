@@ -277,6 +277,8 @@ Code: [Thuật toán Dijkstra](./code/duong%20di%20ngan%20nhat/dijkstra)
 - Mục đích:
     - Tìm đường đi ngắn nhất từ 1 đỉnh s tới các đỉnh còn lại.
     - Áp dụng cho đồ thị có hướng và không có chu trình âm (có thể có cạnh âm).
+
+Code: [Thuật toán Bellman-Ford](./code/duong%20di%20ngan%20nhat/bellman-ford)
 </p>
 </details>
 

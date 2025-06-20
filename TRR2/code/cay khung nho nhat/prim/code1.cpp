@@ -68,7 +68,7 @@ int main() {
 	for (int i = 1; i <= n; i++)
 		d[i] = 1e9;
 
-	prim(1);
+	prim(4);
 
 	return 0;
 }

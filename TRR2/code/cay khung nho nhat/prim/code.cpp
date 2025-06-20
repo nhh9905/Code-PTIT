@@ -11,7 +11,7 @@ typedef struct edge {
 
 int n, m;
 vector<pii> adj[1005];
-bool vis[1005]; // used[i] = 1: i thuoc tap V(MST), 0: i thuoc tap V
+bool used[1005]; // used[i] = 1: i thuoc tap V(MST), 0: i thuoc tap V
 
 void prim(int u) {
 	vector<edge> MST;
@@ -59,9 +59,9 @@ int main() {
 		adj[v].push_back({u, w});
 	}
 
-	memset(vis, 0, sizeof vis);
+	memset(used, 0, sizeof used);
 
-	prim(1);
+	prim(4);
 
 	return 0;
 }
