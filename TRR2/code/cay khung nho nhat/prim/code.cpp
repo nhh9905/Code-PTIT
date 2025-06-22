@@ -24,9 +24,7 @@ void prim(int u) {
 		int X, Y;
 		for (int i = 1; i <= n; i++) {
 			if (used[i]) {
-				for (pii it:adj[i]) {
-					int j = it.fi, w = it.se;
-
+				for (auto [j, w]:adj[i]) {
 					if (!used[j] && w < min_w) {
 						min_w = w;
 						X = j, Y = i;
